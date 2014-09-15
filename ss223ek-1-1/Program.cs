@@ -25,8 +25,6 @@ namespace ss223ek_1_1
 
             //har kommer en sista rad v1
 
-
-
         }
     }
 }
