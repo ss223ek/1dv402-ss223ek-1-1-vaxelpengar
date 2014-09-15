@@ -102,13 +102,41 @@ namespace ss223ek_1_1
 
 
             //här kommer en sista utskrift
+            if(0!=numberOf500)
+            {
                 Console.WriteLine("500-lappar \t: {0}",numberOf500);
+            }
+
+            if (0 != numberOf100)
+            {
                 Console.WriteLine("100-lappar \t: {0}", numberOf100);
+            }
+            
+            if (0 != numberOf50)
+            {
                 Console.WriteLine("50-lappar \t: {0}", numberOf50);
+            } 
+            
+            if (0 != numberOf20)
+            {
                 Console.WriteLine("20-lappar \t: {0}", numberOf20);
+            } 
+            
+            if (0 != numberOf10)
+            {
                 Console.WriteLine("10-kronor \t: {0}", numberOf10);
+            } 
+            
+            if (0 != numberOf5)
+            {
                 Console.WriteLine("5-kronor \t: {0}", numberOf5);
+            } 
+            
+            if (0 != numberOf1)
+            {
                 Console.WriteLine("1-kronor \t: {0}", numberOf1);
+            } 
+               
 
 
 
