@@ -25,21 +25,32 @@ namespace ss223ek_1_1
             }
             catch
             {
-                Console.Write("Något blev fel, mata in ett tal");   
+                //sätt färg
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Något blev fel, mata in ett tal");   
+                // ta bort färg
+                Console.ResetColor();
             }   
            }
 
 
            // om totalsumma avrundas till noll bryts allt
 
-           total = (uint)Math.Round(subtotal);
+           total = (uint)Math.Round(subtotal);  
             if(total<1)
             {
-                Console.Write("Totalsumman är för liten! Köpet kunde inte genomföras.");
-                //bryt
+               //sätt färg
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Totalsumman är för liten! Köpet kunde inte genomföras.");
+                Console.ResetColor();
+                System.Environment.Exit(0);
             }
             
 
+
+            // imatning av erhållet belopp, om det felaktigt format matar man om
             while (true)
 	       {
 	         try
@@ -50,7 +61,13 @@ namespace ss223ek_1_1
             }
             catch
             {
-                Console.Write("Något blev fel, mata in ett tal");   
+                //sätt färg
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("FEL! Erhållet belopp felaktigt");   
+                //ta bort färg
+                Console.ResetColor();
+
             }   
            }
 
@@ -58,10 +75,18 @@ namespace ss223ek_1_1
             
           
 
-            // om betalbelopp är för litet bryta allt
+            // om betalbelopp är för litet bryts allt
             if(payedAmount<total)
             {
-                Console.Write("Erhållet belopp är för litet. Köpet kunde inte genomföras.");
+                //sätt färg
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Erhållet belopp är för litet. Köpet kunde inte genomföras.");
+                Console.ResetColor();
+
+                //bryt program
+                System.Environment.Exit(0);
+
             }
 
             // beräkna öresavrundning och hur mycket som ska ges tillbaka
@@ -70,11 +95,17 @@ namespace ss223ek_1_1
 
             // Skriv ut kvitto
 
-                Console.WriteLine("To \t:\t{0:f2}",subtotal);
-                Console.WriteLine("To \t:\t{0:f2}", roundingOffAmount);
-                Console.WriteLine("To \t:\t{0:f0}", total);
-                Console.WriteLine("To \t:\t{0:f2}", payedAmount);
-                Console.WriteLine("To \t:\t{0:f2}", change);
+                Console.WriteLine("\nKVITTO");
+                Console.WriteLine("-------------------------------");    
+                Console.WriteLine("Totalt         :      {0,9:c}",subtotal);
+                Console.WriteLine("Öresavrundning :      {0,9:c}", roundingOffAmount);
+                Console.WriteLine("Att betala     :      {0,9:c0}", total);
+                Console.WriteLine("Kontant        :      {0,9:c0}", payedAmount);
+                Console.WriteLine("Tillbaka       :      {0,9:c0}", change);
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine("");
+
+
 
             //beräkna hur många av varje mynt och sedel som detta kan ges tillbaka i
 
